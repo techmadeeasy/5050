@@ -26,11 +26,11 @@ require('dotenv').config({ path: require('app-root-path') + '/.env' });
 
 
 var options = {
-    // host: env('localhost'),
-    // port: 3306,
-    // user: 'root',
-    // password: 'vckVCK1995',
-    // database: '5050_farmers_db',
+    host: 'localhost',
+    port: 3306,
+    user: 'root',
+    password: '5VGR6dbERV53wr9',
+    database: 'app5050',
   // Whether or not to automatically check for and clear expired sessions:
   clearExpired: true,
   // How frequently expired sessions will be cleared; milliseconds:
