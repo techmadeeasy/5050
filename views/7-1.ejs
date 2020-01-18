@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="/branding/favicon/favicon.ico" type="image/x-icon">
+  <!--jquery-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600&display=swap" rel="stylesheet">
+   <!--grid-->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!--mine-->
+  <link rel="stylesheet" href="/css/globals.css">
+  <link rel="stylesheet" href="/css/main.css">
+
+
+  <script>
+      $( function() {
+        var availableTags = [
+          "Maize",
+          "Cabbage",
+          "Beans",
+          "Item 4",
+          "Item 5",
+          "Item 6"
+        ];
+        $( "#tags" ).autocomplete({
+          source: availableTags,
+          delay:0
+        });
+
+      } );
+      </script>
+
+  <title>Document</title>
+</head>
+
+<body>
+  <%- include includes/navigation.ejs %>
+  <div class="container col-lg-6 mt-0 mt-md-2">
+
+
+
+    <p class="m-0 counter d-flex justify-content-center">7/10</p>
+
+    <div class="bar">
+      <div class="line-bar"></div>
+      <div class="inner-bar-7-2"></div>
+    </div>
+<div class="back ml-n3 mt-3 mb-n2">
+  <a href="/profile?point=7&profile_id=<%=data.ID%>">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <g data-name="Layer 2">
+        <g data-name="arrow-ios-back">
+          <rect width="24" height="24" transform="rotate(90 12 12)" opacity="0" />
+          <path
+            d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64z" />
+        </g>
+      </g>
+    </svg>Previous Page
+  </a>
+</div>
+    <form class="mt-4" method="post" action="/profile">
+
+      <input type="hidden" name="profile_id" value="<%=data.ID%>">
+        <h3 class="m-0 heading">Crops: Historical data</h3>
+        <p class="m-0 mb-4">Please provide info on previous harvests</p>
+        <div class="form-group">
+            <div class="header">
+              <div class="row no-gutters">
+                <div class="col">
+                  <div class="box-header">
+                    <p class="m-0">Crop</p>
+                  </div>
+                </div>
+                <div class="col mx-1">
+                  <div class="box-header">
+                    <p class="m-0">Area Planted (Hectares)</p>
+                  </div>
+                </div>
+                <div class="col mx-1">
+                  <div class="box-header">
+                    <p class="m-0">Harvest(Kg's)</p>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="box-header">
+                    <p class="m-0">Date Harvested</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+           <div class="my-row">
+
+           </div>
+           <div class="row no-gutters mt-1">
+              <div class="col">
+                <div class="box">
+                    <div class="search-input">
+                        <div class="ui-widget">
+                          <input id="tags" placeholder="Crop">
+                        </div>
+                      </div>
+                </div>
+              </div>
+              <div class="col mx-1">
+                <div class="box">
+                    <input id="area" class="text-center" type="text" min="1" placeholder="Area">
+                </div>
+              </div>
+              <div class="col mx-1">
+                <div class="box">
+                    <input id="harvest" class="text-center" type="number" min="1" placeholder="Harvest">
+                </div>
+              </div>
+              <div class="col">
+                <div class="box">
+                    <input id="date" class="form-control text-center mt-1 mb-2" type="date" placeholder="Date Harvested">
+                </div>
+              </div>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+                <button type="button" class="m-0  btn btn-secondary my-4 add" id="btdn1" title="Add a crop">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="plus"><rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"/><path d="M19 11h-6V5a1 1 0 0 0-2 0v6H5a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0v-6h6a1 1 0 0 0 0-2z"/></g></g></svg>
+                </button>
+            </div>
+          </div>
+
+          <div class="d-flex bottom">
+        <div class="col px-0">
+            <a href="/profile?point=8&profile_id=<%=data.ID%>" class="button-outline">Skip</a>
+        </div>
+
+        <div class="col px-0">
+
+            <input type="hidden" name="historic_crops" id="historic_crops" value="[]">
+            <input type="hidden" name="point" value="7-1">
+            <input id="payload" type="hidden" name="payload" value="<%=JSON.stringify(data)%>">
+            <input type="hidden" name="date" value="<%=new Date().toDateString()%>">
+
+          <button class="button" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <g data-name="Layer 2">
+                <g data-name="arrow-forward">
+                  <rect width="24" height="24" transform="rotate(-90 12 12)" opacity="0" />
+                  <path
+                    d="M5 13h11.86l-3.63 4.36a1 1 0 0 0 1.54 1.28l5-6a1.19 1.19 0 0 0 .09-.15c0-.05.05-.08.07-.13A1 1 0 0 0 20 12a1 1 0 0 0-.07-.36c0-.05-.05-.08-.07-.13a1.19 1.19 0 0 0-.09-.15l-5-6A1 1 0 0 0 14 5a1 1 0 0 0-.64.23 1 1 0 0 0-.13 1.41L16.86 11H5a1 1 0 0 0 0 2z" />
+                </g>
+              </g>
+          </svg> Next</button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+  <script src="/js/bootstrap.min.js"></script>
+
+  <script>
+        var tags = document.getElementById('tags');
+        var area = document.getElementById('area');
+        var date = document.getElementById('date');
+        var harvest = document.getElementById('harvest');
+        var payload = JSON.parse(document.getElementById('payload').value);
+        var crops;
+
+        try {
+            crops = JSON.parse(payload.historic_crops);
+        } catch (e) {
+            crops = [];
+        }
+        //$("#payload").remove();
+
+        if(crops.length > 0){
+
+            for (var i = 0; i < crops.length; i++) {
+                crops[i]['index'] = i;
+                add_crop(crops[i])
+            }
+        }
+
+
+
+        document.getElementById('btdn1').onclick = (event) => {
+            if(tags.value != '' && area.value != '' && date.value != '' && harvest.value != ''){
+                var crop = {
+                    index: crops.length,
+                    crop: tags.value,
+                    area: area.value,
+                    harvest: harvest.value,
+                    date: date.value
+                };
+
+                add_crop(crop);
+                crops.push(crop);
+                document.getElementById('historic_crops').value = JSON.stringify(crops);
+
+            }
+
+        }
+
+
+        function add_crop(crop){
+            var row_item = "<div class='item mt-1' onclick='remove_crop("+crop.index+")' id='crop_"+crop.index+"' >"+
+            '<div class="row no-gutters">'+
+              '<div class="col">'+
+                  "<div class='box' >"+
+                      " <p class='m-0'>"+crop.crop+"</p>"+
+                  '</div>'+
+              '</div>'+
+              '<div class="col mx-1">'+
+                '<div class="box">'+
+                    " <p class='m-0'>"+crop.area+"</p>"+
+                '</div>'+
+              '</div>'+
+              '<div class="col mx-1">'+
+                  '<div class="box">'+
+                          " <p class='m-0'>"+crop.harvest+"</p>"+
+                  '</div>'+
+              '</div>'+
+
+              '<div class="col">'+
+                  '<div class="box">'+
+                          " <p class='m-0'>"+crop.date+"</p>"+
+                  '</div>'+
+              '</div>'+
+            '</div>'+
+            '</div>';
+            $(".my-row").append(row_item);
+
+            tags.value = '';
+            area.value = '';
+            date.value = '';
+        }
+
+        function remove_crop(index){
+            $("#crop_" + index).remove();
+            crops.splice(parseInt(index), 1);
+
+            for(var i =0; i< crops.length; i++){
+              crops[i]['index'] = i;
+            }
+            document.getElementById('historic_crops').value = JSON.stringify(crops);
+
+        }
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./branding/favicon/favicon.ico" type="image/x-icon">
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!--fonts-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600&display=swap" rel="stylesheet">
+    <!--grid-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!--mine-->
+    <link rel="stylesheet" href="/css/globals.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <%- include includes/navigation.ejs %>
+
+    <section>
+        <div class="container d-flex justify-content-center">
+
+            <div class="listview mt-4">
+                <!-- <a href="/profile?point=3">
+                        <div class="back-arrow">
+                            <div class="left"></div>
+                        </div>
+                    </a> -->
+                <h4 class=" mb-1">Farm Profiles</h4>
+                <p>List of all farms managed by this agent</p>
+                <%for(var i = 0; i < farms.length; i++){%>
+                    <div class="custom-card">
+                        <a href="/farms/<%= farms[i].ID %>">
+                            <div class="c-body">
+                                <div class="c-title">
+                                    <%= farms[i].farm_name %>
+                                </div>
+                                <div class="c-caption">
+                                    <p>Farm owner's name</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="c-menu" data-toggle="popover" data-placement="bottom"></div>
+                    </div>
+                <%}%>
+
+                    <ul id="popover-content"  style="display: none">
+                        <p><a href="#">Edit Profile</a></p>
+                        <p><a href="#">Delete Profile</a></p>
+                    </ul>
+
+               </div>
+
+       </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+        <script>
+            $(function () {
+                $('[data-toggle="popover"]').popover({
+                    html: true,
+                    content: function () {
+                        return $('#popover-content').html();
+                    }
+                });
+            });
+        </script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>

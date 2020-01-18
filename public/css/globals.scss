@@ -1,0 +1,265 @@
+/**VARIABLES****/
+$primary: #2699fb;
+$primary-light: lighten(
+  $color: $primary,
+  $amount: 30
+);
+$b-radius: 4px;
+$b-shadow: 0 0 5px rgba(53, 53, 53, 0.1);
+/****************/
+
+body {
+  margin: 20px 0;
+  font-family: "Nunito", sans-serif;
+  color: #3B3B3B;
+}
+
+p {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+label {
+  font-weight: 500;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  background: lighten($color: $primary-light, $amount: 0);
+}
+
+svg {
+  width: 35px;
+  margin-bottom: 1px;
+  vertical-align: middle;
+  fill: currentColor;
+}
+
+::placeholder {
+  color: lighten($color: $primary, $amount: 5);
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+#tags {
+  letter-spacing: 0.04rem;
+  border: $primary-light 1px solid;
+  border-radius: $b-radius;
+  height: 50px;
+  font-size: 1rem;
+  width: 100%;
+  padding: 10px;
+  color: lighten($color: #000, $amount: 25);
+}
+
+
+.container {
+  padding-bottom: 40px;
+}
+
+.intro-container {
+  width: 75%;
+  p {
+    color: lighten($color: $primary, $amount: 0);
+    strong {
+      color: darken($color: $primary, $amount: 20);
+    }
+  }
+}
+
+.main-heading{
+  color: darken($color: $primary, $amount: 20);
+  font-weight: 900;
+}
+
+.heading {
+  color: darken($color: $primary, $amount: 15);
+  font-size: 1.4rem;
+  letter-spacing: 0.04rem;
+  font-weight: 900;
+}
+
+.counter {
+  color: $primary;
+}
+
+.bg-light {
+  background: #f0f9ff !important;
+}
+
+.logo-large {
+  height: 200px;
+  background: url("/branding/logo.jpeg") no-repeat;
+  width: 100%;
+  background-size: contain;
+  background-position: center;
+  overflow: hidden;
+}
+
+.logo-small {
+  height: 90px;
+  background: url("/branding/logo.jpeg") no-repeat;
+  width: 100%;
+  background-size: contain;
+  background-position: center;
+  overflow: hidden;
+}
+
+.button {
+  padding: 0.8rem 0;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  text-transform: uppercase;
+  height: 50px;
+  width: 100%;
+  font-size: 14px;
+  background: $primary;
+  color: white;
+  font-weight: 500;
+  border-radius: $b-radius;
+  text-decoration: none !important;
+  &:hover {
+    background: $primary-light;
+    transition: all 200ms linear;
+  }
+
+  svg {
+    width: 18px;
+    margin-bottom: 1px;
+    vertical-align: middle;
+    fill: currentColor;
+  }
+}
+
+.button-outline {
+  padding: 0.8rem 0;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  text-transform: uppercase;
+  height: 50px;
+  width: 90%;
+  font-size: 14px;
+  border: 1.5px solid $primary-light;
+  font-weight: 500;
+  background: #fff;
+  border-radius: $b-radius;
+  color: $primary;
+  text-decoration: none !important;
+  &:hover {
+    background: darken($color: $primary-light, $amount: 10);
+    transition: background-color 0.3s ease-in;
+    color: #fff;
+  }
+  svg {
+    width: 18px;
+    margin-bottom: 1px;
+    vertical-align: middle;
+    fill: currentColor;
+  }
+}
+
+.custom-input {
+  margin: 20px 0;
+  label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: $primary;
+    font-weight: 600;
+  }
+  ::placeholder {
+    color: lighten($color: $primary, $amount: 5);
+    font-size: 1rem;
+  }
+}
+
+.search-input{
+  
+  label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: $primary;
+   
+  }
+    
+}
+.ui-autocomplete {
+  max-height: 200px;
+  overflow-y: auto;
+  /* prevent horizontal scrollbar */
+  overflow-x: hidden;
+  
+}
+
+.custom-input-2 {
+  margin: 15px 0;
+  label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: $primary;
+    font-weight: 600;
+  }
+  ::placeholder {
+    color: lighten($color: $primary, $amount: 5);
+    font-size: 0.85rem;
+    text-transform: capitalize;
+  }
+  
+}
+
+.custom-radio-2{
+  label{
+    color: darken($color: $primary, $amount: 15) ;
+  }
+}
+
+.custom-input-option {
+  width: 95%;
+  margin: 1.2rem 0;
+  .form-control {
+    letter-spacing: 0.04rem;
+    border: $primary-light 1px solid;
+    border-radius: $b-radius;
+    height: 50px;
+    font-size: 0.9rem;
+    padding: 10px;
+    
+    color: lighten($color: $primary, $amount: 5);
+  }
+}
+
+.add {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+
+  svg {
+    fill: #fff;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .bottom {
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    background: #fff;
+    z-index: 99999;
+  }
+
+  .intro-container {
+    width: 100%;
+  }
+}

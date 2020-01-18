@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./branding/favicon/favicon.ico" type="image/x-icon">
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!--fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600&display=swap" rel="stylesheet">
+    <!--grid-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!--mine-->
+    <link rel="stylesheet" href="/css/globals.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- Start of dreamfactoryfoundation Zendesk Widget script -->
+    <script id="ze-snippet"
+        src="https://static.zdassets.com/ekr/snippet.js?key=4d9869bf-5595-4811-b6ba-97e6ee115a6c"> </script>
+    <!-- End of dreamfactoryfoundation Zendesk Widget script -->
+
+</head>
+
+<body>
+    <%- include includes/navigation.ejs %>
+
+    <section>
+        <div class="container">
+            <div class="container col-lg-5 col-md-8 mt-0 mt-md-1 d-flex justify-content-center">
+                <div class="intro-container">
+                    <a href="/">
+                        <div class="logo-small"></div>
+                    </a>
+
+                    <h2 class="text-center main-heading my-3">Help Center</h2>
+                    <div class="text-center bg-light mx-lg-n5 mx-md-n5 mx-0 my-3 p-3 rounded">
+                        <p>Speak directly with a Farming expert or leave a support ticket.
+                            <strong>Choose the category that best describes your problem</strong>,
+                            and we will connect you to an expert in that category.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </section>
+
+    <section>
+        <h4 id="connecting_label" class="text-center main-heading my-3">Connecting to Center...</h4>
+        <input type="hidden" id="user" value="<%=JSON.stringify(user)%>" />
+
+        <div id="dept" class="container col-lg-5 col-md-8 mt-0 mt-md-1 d-flex flex-wrap justify-content-center">
+
+        </div>
+    </section>
+
+    <div class="back ml-n1 mt-3 mb-n2 text-center">
+        <a href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <g data-name="Layer 2">
+                    <g data-name="arrow-ios-back">
+                        <rect width="24" height="24" transform="rotate(90 12 12)" opacity="0" />
+                        <path
+                            d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64z" />
+                    </g>
+                </g>
+            </svg>Back to home
+        </a>
+    </div>
+
+
+
+    <script type="text/javascript">
+        var departments = [];
+        var user = JSON.parse(document.getElementById('user').value);
+
+        window.zESettings = {
+            webWidget: {
+
+                chat: {
+                    suppress: false
+                },
+                contactForm: {
+                    title: {
+                        '*': 'Open a Support Ticket'
+                    }
+
+                },
+                contactOptions: {
+                    enabled: true,
+                    contactButton: { '*': 'Open a support ticket' }
+                }
+
+
+            }
+        };
+
+        zE('webWidget:on', 'chat:connected', () => {
+            init();
+            d
+            document.getElementById('connecting_label').style.display = 'none';;
+            departments = zE('webWidget:get', 'chat:departments');
+            document.getElementById('dept').innerHTML = '';
+            departments.forEach(department => {
+
+                var dept =
+                    "<a href=\"#\" class=\"button w-50  m-2\" onclick=\"configure_department('" + department.name + "')\">"
+                    + "<label>" + department.name + "</label>"
+                    + "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">"
+                    + "<g data-name=\"Layer 2\">"
+                    + "<g data-name=\"arrow-forward\">"
+                    + "<rect width=\"24\" height=\"24\" transform=\"rotate(-90 12 12)\" opacity=\"0\" />"
+                    + "<path d=\"M5 13h11.86l-3.63 4.36a1 1 0 0 0 1.54 1.28l5-6a1.19 1.19 0 0 0 .09-.15c0-.05.05-.08.07-.13A1 1 0 0 0 20 12a1 1 0 0 0-.07-.36c0-.05-.05-.08-.07-.13a1.19 1.19 0 0 0-.09-.15l-5-6A1 1 0 0 0 14 5a1 1 0 0 0-.64.23 1 1 0 0 0-.13 1.41L16.86 11H5a1 1 0 0 0 0 2z\" />"
+                    + "</g>"
+                    + "</g>"
+                    + " </svg>"
+                    + "<label>" + department.status + "</label>"
+                    + "</a>";
+                $("#dept").append(dept);
+
+            });
+
+
+        });
+
+        function configure_department(selected) {
+
+            // zE('webWidget', 'reset');
+            zE('webWidget', 'updateSettings', {
+                webWidget: {
+                    chat: {
+                        departments: {
+                            enabled: departments, //apply available departments
+                            select: selected //selected department
+                        }
+                    }
+                }
+            });
+            init();
+            zE('webWidget', 'toggle');
+
+        }
+
+        function init() {
+
+            zE('webWidget', 'identify', {
+                name: user.fullname,
+                email: user.email_address
+            });
+
+            zE('webWidget', 'prefill', {
+                name: {
+                    value: user.fullname,
+                    readOnly: true // optional
+                },
+                email: {
+                    value: user.email_address,
+                    readOnly: true // optional
+                },
+                phone: {
+                    value: user.phone_number,
+                    readOnly: true // optional
+                }
+            });
+
+        }
+
+    </script>
+</body>
+
+</html>

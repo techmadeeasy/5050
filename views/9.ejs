@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="./branding/favicon/favicon.ico" type="image/x-icon">
+  <!--jquery-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+    <!--fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600&display=swap" rel="stylesheet">
+   <!--grid-->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!--mine-->
+  <link rel="stylesheet" href="/css/globals.css">
+  <link rel="stylesheet" href="/css/main.css">
+
+  <title>Document</title>
+</head>
+
+<body>
+  <%- include includes/navigation.ejs %>
+  <div class="container col-lg-6 mt-0 mt-md-2">
+
+    <p class="m-0 d-flex justify-content-center">9/10</p>
+
+    <div class="bar">
+      <div class="line-bar"></div>
+      <div class="inner-bar-9"></div>
+    </div>
+<div class="back ml-n3 mt-3 mb-n2">
+  <a href="/profile?point=8-1&profile_id=<%=data.ID%>">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <g data-name="Layer 2">
+        <g data-name="arrow-ios-back">
+          <rect width="24" height="24" transform="rotate(90 12 12)" opacity="0" />
+          <path
+            d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64z" />
+        </g>
+      </g>
+    </svg>Previous Page
+  </a>
+</div>
+    <form class="mt-4" method="post" action="/profile">
+
+
+        <input type="hidden" name="profile_id" value="<%=data.ID%>">
+        <h3 class="m-0 heading">Government Support</h3>
+        <p class="m-0 mb-3">Which government program(s) does your farm recieve support from?</p>
+
+        <div class="form-group mt-4">
+            <label class="custom-label" for="">CEDA/Farmers Fund</label>
+            <div class="radio">
+              <input id="has_ceda_support_true" type="radio" name="has_ceda_support" value="true">
+              <label for="has_ceda_support_true">Yes</label>
+              <input id="has_ceda_support_false" type="radio" name="has_ceda_support" value="false">
+              <label for="has_ceda_support_false">No</label>
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <label class="custom-label" for="">YDF?</label>
+            <div class="radio">
+              <input id="has_ydf_support_true" type="radio" name="has_ydf_support" value="true">
+              <label for="has_ydf_support_true">Yes</label>
+              <input id="has_ydf_support_false" type="radio" name="has_ydf_support" value="false">
+              <label for="has_ydf_support_false">No</label>
+            </div>
+          </div>
+          <div class="form-group mt-3">
+              <label class="custom-label" for="">ISPAAD?</label>
+              <div class="radio">
+                <input id="has_ispaad_support_true" type="radio" name="has_ispaad_support" value="true">
+                <label for="has_ispaad_support_true">Yes</label>
+                <input id="has_ispaad_support_false" type="radio" name="has_ispaad_support" value="false">
+                <label for="has_ispaad_support_false">No</label>
+              </div>
+            </div>
+            <div class="form-group mt-3">
+                <label class="custom-label" for="">LEA?</label>
+                <div class="radio">
+                  <input id="has_lea_support_true" type="radio" name="has_lea_support" value="true">
+                  <label for="has_lea_support_true">Yes</label>
+                  <input id="has_lea_support_false" type="radio" name="has_lea_support" value="false">
+                  <label for="has_lea_support_false">No</label>
+                </div>
+              </div>
+      <div class="d-flex bottom">
+        <div class="col px-0">
+            <a href="/profile?point=10&profile_id=<%=data.ID%>" class="button-outline">Skip</a>
+        </div>
+        <div class="col px-0">
+            <input type="hidden" name="point" value="9">
+            <input id="payload" type="hidden" name="payload" value="<%=JSON.stringify(data)%>">
+             <input type="hidden" name="date" value="<%=new Date().toDateString()%>">
+          <button class="button" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <g data-name="Layer 2">
+                <g data-name="arrow-forward">
+                  <rect width="24" height="24" transform="rotate(-90 12 12)" opacity="0" />
+                  <path
+                    d="M5 13h11.86l-3.63 4.36a1 1 0 0 0 1.54 1.28l5-6a1.19 1.19 0 0 0 .09-.15c0-.05.05-.08.07-.13A1 1 0 0 0 20 12a1 1 0 0 0-.07-.36c0-.05-.05-.08-.07-.13a1.19 1.19 0 0 0-.09-.15l-5-6A1 1 0 0 0 14 5a1 1 0 0 0-.64.23 1 1 0 0 0-.13 1.41L16.86 11H5a1 1 0 0 0 0 2z" />
+                </g>
+              </g>
+          </svg> Next</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <script src="/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+        var payload = JSON.parse(document.getElementById('payload').value);
+
+        document.getElementById('has_ceda_support_' + payload.has_ceda_support).checked = true;
+        document.getElementById('has_ydf_support_' + payload.has_ydf_support).checked = true;
+        document.getElementById('has_ispaad_support_' + payload.has_ispaad_support).checked = true;
+        document.getElementById('has_lea_support_' + payload.has_lea_support).checked = true;
+
+  </script>
+</body>
+
+</html>

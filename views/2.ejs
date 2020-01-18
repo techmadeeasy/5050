@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="./branding/favicon/favicon.ico" type="image/x-icon">
+  <!--jquery-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+     <!--fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600&display=swap" rel="stylesheet">
+  <!--grid-->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!--mine-->
+  <link rel="stylesheet" href="/css/globals.css">
+  <link rel="stylesheet" href="/css/main.css">
+
+  <title>Document</title>
+</head>
+
+<body>
+  <%- include includes/navigation.ejs %>
+
+  <div class="container col-lg-6 mt-0 mt-md-2">
+
+    <p class="m-0 counter d-flex justify-content-center">2/10</p>
+
+    <div class="bar">
+      <div class="line-bar"></div>
+      <div class="inner-bar-2"></div>
+    </div>
+  <div class="back ml-n3 mt-3 mb-n2">
+    <a href="/">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <g data-name="Layer 2">
+          <g data-name="arrow-ios-back">
+            <rect width="24" height="24" transform="rotate(90 12 12)" opacity="0" />
+            <path
+              d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64z" />
+          </g>
+        </g>
+      </svg>Previous Page
+    </a>
+  </div>
+    <h3 class="my-4 heading">
+      Location(GPS Coordinates)
+    </h3>
+    <div class="location">
+      <div id="location-map" class="location-map">
+      </div>
+      <p class="location-text text-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <g data-name="Layer 2">
+            <g data-name="pin">
+              <rect width="24" height="24" opacity="0" />
+              <circle cx="12" cy="9.5" r="1.5" />
+              <path
+                d="M12 2a8 8 0 0 0-8 7.92c0 5.48 7.05 11.58 7.35 11.84a1 1 0 0 0 1.3 0C13 21.5 20 15.4 20 9.92A8 8 0 0 0 12 2zm0 11a3.5 3.5 0 1 1 3.5-3.5A3.5 3.5 0 0 1 12 13z" />
+            </g>
+          </g>
+        </svg>
+        <p id="coords-latlng" class="location-text text-center"></p>
+        <p id="coords" class="location-text text-center"></p>
+      </p>
+    </div>
+
+    <div class="d-flex bottom">
+      <div class="col px-0">
+          <a href="/profile?point=3&profile_id=<%=data.ID%>" class="button-outline">Skip</a>
+      </div>
+      <div class="col px-0">
+          <form class="form" action="/profile" method="post">
+
+              <input type="hidden" name="profile_id" value="<%=data.ID%>">
+
+              <input type="hidden" name="lat" id="lat">
+              <input type="hidden" name="lng" id="lng">
+               <input type="hidden" name="date" value="<%=new Date().toDateString()%>">
+               <input type="hidden" name="point" value="2">
+              <button class="button" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <g data-name="Layer 2">
+                    <g data-name="arrow-forward">
+                      <rect width="24" height="24" transform="rotate(-90 12 12)" opacity="0" />
+                      <path
+                        d="M5 13h11.86l-3.63 4.36a1 1 0 0 0 1.54 1.28l5-6a1.19 1.19 0 0 0 .09-.15c0-.05.05-.08.07-.13A1 1 0 0 0 20 12a1 1 0 0 0-.07-.36c0-.05-.05-.08-.07-.13a1.19 1.19 0 0 0-.09-.15l-5-6A1 1 0 0 0 14 5a1 1 0 0 0-.64.23 1 1 0 0 0-.13 1.41L16.86 11H5a1 1 0 0 0 0 2z" />
+                    </g>
+                  </g>
+              </svg> Next</button>
+          </form>
+
+      </div>
+    </div>
+
+
+  </div>
+  <script>
+  // Note: This example requires that you consent to location sharing when
+    // prompted by your browser. If you see the error "The Geolocation service
+    // failed.", it means you probably did not give permission for the browser to
+    // locate you.
+        var map, infoWindow;
+        function initMap() {
+          var LatLng = { lat: -34.397, lng: 150.644 };
+          map = new google.maps.Map(document.getElementById('location-map'), {
+            center: LatLng,
+            zoom: 6
+          });
+          infoWindow = new google.maps.InfoWindow;
+
+          // Try HTML5 geolocation.
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+              var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              };
+
+              document.getElementById('lat').value = pos.lat;
+              document.getElementById('lng').value = pos.lng;
+
+              // infoWindow.setPosition(pos);
+              // infoWindow.setContent('Location found.');
+              // infoWindow.open(map);
+
+              map.setCenter(pos);
+
+              var infowindow = new google.maps.InfoWindow({
+                content: 'Your Location'
+              });
+
+              marker = new google.maps.Marker(
+              {
+                  map:map,
+                  draggable:true,
+                  animation: google.maps.Animation.DROP,
+                  position: pos
+              });
+
+              infowindow.open(map, marker);
+
+
+              geocodePosition(marker.getPosition());
+              google.maps.event.addListener(marker, 'dragend', function() {
+                  geocodePosition(marker.getPosition());
+              });
+
+            }, function() {
+              handleLocationError(true, infoWindow, map.getCenter());
+            });
+          } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+          }
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+          infoWindow.setPosition(pos);
+          infoWindow.setContent(browserHasGeolocation ?
+                                'Error: The Geolocation service failed.' :
+                                'Error: Your browser doesn\'t support geolocation.');
+          infoWindow.open(map);
+        }
+
+        function geocodePosition(pos) {
+           geocoder = new google.maps.Geocoder();
+           geocoder.geocode({
+                latLng: pos
+            },
+                function(results, status){
+                    if (status == google.maps.GeocoderStatus.OK){
+
+                        document.getElementById('lat').value = pos.lat();
+                        document.getElementById('lng').value = pos.lng();
+                        document.getElementById('coords-latlng').innerHTML = "("+pos.lat() + " , " + pos.lng() + ")";
+                        document.getElementById('coords').innerHTML = results[0].formatted_address;
+
+
+                    }else{
+                        document.getElementById('coords').innerHTML ='Cannot determine address at this location.'+status;
+                    }
+                }
+            );
+        }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiwn1ZBWX8hvv_L21fZQbeO_s_zpSsyWA&callback=initMap"
+    async defer></script>
+
+  <script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>

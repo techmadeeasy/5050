@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="./branding/favicon/favicon.ico" type="image/x-icon">
+  <!--jquery-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <!--fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600&display=swap" rel="stylesheet">
+  <!--grid-->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!--mine-->
+  <link rel="stylesheet" href="/css/globals.css">
+  <link rel="stylesheet" href="/css/main.css">
+
+  <title>Document</title>
+</head>
+
+<body>
+    <%- include includes/navigation.ejs %>
+
+  <div class="container col-lg-6 mt-0 mt-md-4">
+
+    <p class="m-0 d-flex justify-content-center counter">1/10</p>
+
+    <div class="bar">
+      <div class="line-bar"></div>
+      <div class="inner-bar w-10"></div>
+    </div>
+
+    <div class="back ml-n3 mt-3 mb-n2">
+      <a href="/">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <g data-name="Layer 2">
+            <g data-name="arrow-ios-back">
+              <rect width="24" height="24" transform="rotate(90 12 12)" opacity="0" />
+              <path
+                d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64z" />
+            </g>
+          </g>
+        </svg>Back to home
+      </a>
+    </div>
+
+    <form class="mt-4" method="post" action="/profile">
+
+      <div class="custom-input mb-4">
+        <label>Farm Name</label>
+        <input required type="text" name="farm_name" placeholder="(Give your farm a name)" value="<%=data.farm_name%>">
+      </div>
+      <div class="custom-input mb-4">
+        <label>Farm Size</label>
+        <input required type="number" name="size" step="0.1" min="1" placeholder="(What is the size of the farm in Hectares)" value="<%=data.size%>">
+      </div>
+      <div class="custom-input mb-4">
+        <label>Personnel</label>
+        <input required type="number" name="personnel" min="1" placeholder="(How many people work in the farm?)" value="<%=data.personnel%>">
+      </div>
+
+      <div class="d-flex bottom">
+        <div class="col px-0">
+          <a href="/profile?point=2&profile_id=<%=data.ID%>" class="button-outline">Skip</a>
+        </div>
+        <div class="col px-0">
+          <button class="button" type="post">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <g data-name="Layer 2">
+                <g data-name="arrow-forward">
+                  <rect width="24" height="24" transform="rotate(-90 12 12)" opacity="0" />
+                  <path
+                    d="M5 13h11.86l-3.63 4.36a1 1 0 0 0 1.54 1.28l5-6a1.19 1.19 0 0 0 .09-.15c0-.05.05-.08.07-.13A1 1 0 0 0 20 12a1 1 0 0 0-.07-.36c0-.05-.05-.08-.07-.13a1.19 1.19 0 0 0-.09-.15l-5-6A1 1 0 0 0 14 5a1 1 0 0 0-.64.23 1 1 0 0 0-.13 1.41L16.86 11H5a1 1 0 0 0 0 2z" />
+                </g>
+              </g>
+          </svg> Next</button>
+          <input type="hidden" name="point" value="1">
+          <%-console.log(data);%>
+          <input type="hidden" name="profile_id" value="<%=data.ID%>">
+          <input type="hidden" name="date" value="<%=new Date().toDateString()%>">
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>

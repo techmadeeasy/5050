@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./branding/favicon/favicon.ico" type="image/x-icon">
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!--fonts-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600&display=swap" rel="stylesheet">
+    <!--grid-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!--mine-->
+    <link rel="stylesheet" href="/css/globals.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Weather</title>
+</head>
+
+<body>
+    <%- include includes/navigation.ejs %>
+
+
+    <div class="text-center bg-light py-3 mt-n3">
+        <h4>Your 7 day Weather Forecast</h4>
+        <div class="back ml-n3 mt-3 mb-n2">
+            <a href="/">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g data-name="Layer 2">
+                        <g data-name="arrow-ios-back">
+                            <rect width="24" height="24" transform="rotate(90 12 12)" opacity="0" />
+                            <path
+                                d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64z" />
+                        </g>
+                    </g>
+                </svg>Back to home
+            </a>
+        </div>
+    </div>
+
+    <div class="container-fluid mb-4">
+
+        <div class="mt-md-n5 mt-0 overflow-auto">
+            <script type='text/javascript'
+                src='https://darksky.net/widget/default/<%= latitude %>,<%= longitude %>/uk12/en.js?width=100%&height=420&title=<%= title %> forecast&textColor=333333&bgColor=&transparency=false&skyColor=undefined&fontFamily=Sans-Serif&customFont=&units=uk&htColor=ab3030&ltColor=80b6e8&displaySum=yes&displayHeader=yes'></script>
+        </div>
+        <div class="text-center mt-md-n5 mt-0">
+            <h5>
+                Not your location? Search below
+            </h5>
+            <svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <g data-name="Layer 2">
+                    <g data-name="arrow-ios-downward">
+                        <rect width="24" height="24" opacity="0" />
+                        <path
+                            d="M12 16a1 1 0 0 1-.64-.23l-6-5a1 1 0 1 1 1.28-1.54L12 13.71l5.36-4.32a1 1 0 0 1 1.41.15 1 1 0 0 1-.14 1.46l-6 4.83A1 1 0 0 1 12 16z" />
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </div>
+
+
+    <div class="container-fluid bg-dark py-3 bottom-2">
+        <form action="/weather" method="GET">
+            <div class="row justify-content-center">
+                <div class="col-md-5 col-12 mb-2 mb-md-0">
+                    <input type="text" name="search" placeholder="Get a forecast for your Location"
+                        class="input-group-sm">
+                </div>
+
+                <button class="btn btn-secondary btn-sm search-btn" type="submit">FIND
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <g data-name="Layer 2">
+                            <g data-name="navigation-2">
+                                <rect width="24" height="24" opacity="0" />
+                                <path
+                                    d="M13.67 22h-.06a1 1 0 0 1-.92-.8l-1.54-7.57a1 1 0 0 0-.78-.78L2.8 11.31a1 1 0 0 1-.12-1.93l16-5.33A1 1 0 0 1 20 5.32l-5.33 16a1 1 0 0 1-1 .68z" />
+                            </g>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <script src="/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

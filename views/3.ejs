@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./branding/favicon/favicon.ico" type="image/x-icon">
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+        <!--fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600&display=swap" rel="stylesheet">
+     <!--grid-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!--mine-->
+    <link rel="stylesheet" href="/css/globals.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <%- include includes/navigation.ejs %>
+    <div class="container col-lg-6 mt-0 mt-md-2">
+
+        <p class="m-0 d-flex justify-content-center counter">3/10</p>
+
+        <div class="bar">
+            <div class="line-bar"></div>
+            <div class="inner-bar-3"></div>
+        </div>
+
+        <div class="back ml-n3 mt-3 mb-n2">
+            <a href="/profile?point=2&profile_id=<%=data.ID%>">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g data-name="Layer 2">
+                        <g data-name="arrow-ios-back">
+                            <rect width="24" height="24" transform="rotate(90 12 12)" opacity="0" />
+                            <path
+                                d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64z" />
+                        </g>
+                    </g>
+                </svg>Previous Page
+            </a>
+        </div>
+        <form class="mt-4" action="/profile" method="post">
+            <h4 class="heading mb-3">Location (District)</h4>
+
+            <input type="hidden" name="profile_id" value="<%=data.ID%>">
+            <div class="form-group">
+                <div class="newradio">
+                    <label>
+                        <input type="radio" class="option-input radio"
+                        name="district" value="Central" id="Central"/>
+                        Central
+                    </label>
+                    <label>
+                        <input type="radio" class="option-input radio"
+                        name="district" value="Chobe" id="Chobe" />
+                        Chobe
+                    </label>
+                    <label>
+                        <input type="radio" class="option-input radio"
+                        name="district" value="Ghanzi" id="Ghanzi"/>
+                        Ghanzi
+                    </label>
+                    <label>
+                        <input type="radio" class="option-input radio"
+                        name="district" value="North-East" id="North-East" />
+                        North-East
+                    </label>
+                    <label>
+                        <input type="radio" class="option-input radio"
+                        name="district" value="North-West" id="North-West" />
+                        North-West
+                    </label>
+                    <label>
+                        <input type="radio" class="option-input radio"
+                        name="district" value="South-East" id="South-East" />
+                        South-East
+                    </label>
+                    <label>
+                        <input type="radio" class="option-input radio"
+                        name="district" value="Kweneng" id="Kweneng" />
+                        Kweneng
+                    </label>
+                    <label>
+                        <input type="radio" class="option-input radio"
+                        name="district" value="Kgalagadi" id="Kgalagadi"/>
+                        Kgalagadi
+                    </label>
+                </div>
+            </div>
+
+            <div class="d-flex bottom">
+                <div class="col  px-0">
+                     <a href="/profile?point=4&profile_id=<%=data.ID%>" class="button-outline">Skip</a>
+                </div>
+                <div class="col  px-0">
+                    <input id="payload" type="hidden" name="payload" value="<%=JSON.stringify(data)%>">
+                    <input type="hidden" name="point" value="3">
+                     <input type="hidden" name="date" value="<%=new Date().toDateString()%>">
+                    <button class="button" type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <g data-name="Layer 2">
+                                <g data-name="arrow-forward">
+                                    <rect width="24" height="24" transform="rotate(-90 12 12)" opacity="0" />
+                                    <path
+                                        d="M5 13h11.86l-3.63 4.36a1 1 0 0 0 1.54 1.28l5-6a1.19 1.19 0 0 0 .09-.15c0-.05.05-.08.07-.13A1 1 0 0 0 20 12a1 1 0 0 0-.07-.36c0-.05-.05-.08-.07-.13a1.19 1.19 0 0 0-.09-.15l-5-6A1 1 0 0 0 14 5a1 1 0 0 0-.64.23 1 1 0 0 0-.13 1.41L16.86 11H5a1 1 0 0 0 0 2z" />
+                                </g>
+                            </g>
+                        </svg> Next</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        var payload = JSON.parse(document.getElementById('payload').value);
+        if(payload.district != '')document.getElementById(payload.district).checked = true;
+    </script>
+</body>
+
+</html>

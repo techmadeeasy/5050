@@ -1,0 +1,331 @@
+
+body {
+  /* margin: 20px 0; */
+  font-family: "Nunito", sans-serif;
+  color: #3B3B3B;
+}
+
+p {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+label {
+  font-weight: 500;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none !important;
+}
+
+
+hr {
+  background: #bce0fe;
+}
+
+svg {
+  width: 20px;
+  margin-bottom: 1px;
+  vertical-align: middle;
+  fill: currentColor;
+}
+
+::-webkit-input-placeholder {
+  color: #3fa5fb;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+:-ms-input-placeholder {
+  color: #3fa5fb;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+::-ms-input-placeholder {
+  color: #3fa5fb;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+::placeholder {
+  color: #3fa5fb;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+#tags {
+  letter-spacing: 0.04rem;
+  border: #bce0fe 1px solid;
+  border-radius: 4px;
+  height: 50px;
+  font-size: 1rem;
+  width: 100%;
+  padding: 10px;
+  color: #404040;
+}
+
+.container {
+  padding-bottom: 40px;
+}
+
+.intro-container {
+  width: 75%;
+}
+
+.intro-container p {
+  color: #2699fb;
+}
+
+.intro-container p strong {
+  color: #0365b8;
+}
+
+.main-heading {
+  color: #0365b8;
+  font-weight: 900;
+}
+
+.heading {
+  color: #0472d1;
+  font-size: 1.4rem;
+  letter-spacing: 0.04rem;
+  font-weight: 900;
+}
+
+.counter {
+  color: #2699fb;
+}
+
+.bg-light {
+  background: #f0f9ff !important;
+}
+
+.logo-large {
+  height: 200px;
+  background: url("/branding/logo.jpeg") no-repeat;
+  width: 100%;
+  background-size: contain;
+  background-position: center;
+  overflow: hidden;
+}
+
+.profile-img {
+  height: 200px;
+  width: 100%;
+  background-size: contain;
+  background-position: center;
+  overflow: hidden;
+}
+
+.logo-small {
+  height: 90px;
+  background: url("/branding/logo.jpeg") no-repeat;
+  width: 100%;
+  background-size: contain;
+  background-position: center;
+  overflow: hidden;
+}
+
+.button {
+  padding: 0.8rem 0;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  text-transform: uppercase;
+  height: 50px;
+  width: 100%;
+  font-size: 14px;
+  background: #2699fb;
+  color: white;
+  font-weight: 500;
+  border-radius: 4px;
+  text-decoration: none !important;
+}
+
+.button:hover {
+  background: #bce0fe;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
+.button svg {
+  width: 18px;
+  margin-bottom: 1px;
+  vertical-align: middle;
+  fill: currentColor;
+}
+
+.button-outline {
+  padding: 0.8rem 0;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  text-transform: uppercase;
+  height: 50px;
+  width: 90%;
+  font-size: 14px;
+  border: 1.5px solid #bce0fe;
+  font-weight: 500;
+  background: #fff;
+  border-radius: 4px;
+  color: #2699fb;
+  text-decoration: none !important;
+}
+
+.button-outline:hover {
+  background: #8ac8fd;
+  -webkit-transition: background-color 0.3s ease-in;
+  transition: background-color 0.3s ease-in;
+  color: #fff;
+}
+
+.button-outline svg {
+  width: 18px;
+  margin-bottom: 1px;
+  vertical-align: middle;
+  fill: currentColor;
+}
+
+.custom-input {
+  margin: 20px 0;
+}
+
+.custom-input label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: #2699fb;
+  font-weight: 600;
+}
+
+.custom-input ::-webkit-input-placeholder {
+  color: #3fa5fb;
+  font-size: 1rem;
+}
+
+.custom-input :-ms-input-placeholder {
+  color: #3fa5fb;
+  font-size: 1rem;
+}
+
+.custom-input ::-ms-input-placeholder {
+  color: #3fa5fb;
+  font-size: 1rem;
+}
+
+.custom-input ::placeholder {
+  color: #3fa5fb;
+  font-size: 1rem;
+}
+
+.search-input label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: #2699fb;
+}
+
+.ui-autocomplete {
+  max-height: 200px;
+  overflow-y: auto;
+  /* prevent horizontal scrollbar */
+  overflow-x: hidden;
+}
+
+.custom-input-2 {
+  margin: 15px 0;
+}
+
+.custom-input-2 label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: #2699fb;
+  font-weight: 600;
+}
+
+.custom-input-2 ::-webkit-input-placeholder {
+  color: #3fa5fb;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+.custom-input-2 :-ms-input-placeholder {
+  color: #3fa5fb;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+.custom-input-2 ::-ms-input-placeholder {
+  color: #3fa5fb;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+.custom-input-2 ::placeholder {
+  color: #3fa5fb;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+.custom-radio-2 label {
+  color: #0472d1;
+}
+
+.custom-input-option {
+  width: 95%;
+  margin: 1.2rem 0;
+}
+
+.custom-input-option .form-control {
+  letter-spacing: 0.04rem;
+  border: #bce0fe 1px solid;
+  border-radius: 4px;
+  height: 50px;
+  font-size: 0.9rem;
+  padding: 10px;
+  color: #3fa5fb;
+}
+
+.add {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+
+.add svg {
+  fill: #fff;
+}
+
+@media only screen and (max-width: 580px) {
+  .bottom {
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    background: #fff;
+    z-index: 99999;
+  }
+  .intro-container {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=globals.css.map */
+
+@media only screen and (min-width: 580px) {
+.bottom-2 {
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    background: #fff;
+    z-index: 99999;
+  }
+}

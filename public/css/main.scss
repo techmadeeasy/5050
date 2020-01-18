@@ -1,0 +1,398 @@
+/**MY VARIABLES**/
+$b-radius: 4px;
+$b-shadow:0 0 10px rgba(0, 0, 0, 0.2);
+$primary: #2699FB;
+$primary-light: lighten($color: $primary, $amount: 30);
+
+
+body{
+  font-family: 'Nunito', sans-serif;
+  color: #3B3B3B;
+}
+
+body::before{
+  position: relative;
+  bottom: 30px;
+  content: '';
+  display: inline-block;
+  width: 100%;
+  height: 18px;
+  background: $primary;
+}
+
+
+#bg-home::before {
+  position: relative;
+  bottom: 30px;
+  content: '';
+  display: inline-block;
+  width: 100%;
+  height: 18px;
+  background: #3CA044;
+}
+
+.custom-label{
+  color: darken($color: $primary, $amount: 5);
+  font-size: 0.9rem;
+}
+
+.box-header{
+  border: 1px solid #e3e3e3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 60px;
+  width: 100%;
+  background: $primary;
+  color: #fff;
+  padding: 10px;
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 60px;
+  width: 100%;
+  background-color: darken($color: #F0F9FF, $amount: 2);
+  padding:10px 5px;
+  p {
+    font-size: 0.8rem;
+  }
+}
+
+.search-results{
+  margin-top: 1.2rem;
+  padding: 0 1rem;
+  color: $primary;
+}
+
+.bar {
+  position: relative;
+  margin-top: 10px;
+
+  .line-bar::before {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background: $primary-light;
+    display: block;
+    border-radius: 5px;
+  }
+
+  .inner-bar::after {
+    content: "";
+    height: 8px;
+    width: 10%;
+    background: $primary;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    bottom: 5px;
+  }
+
+  .inner-bar-2::after {
+    content: "";
+    height: 8px;
+    width: 20%;
+    background: $primary;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    bottom: 5px;
+  }
+
+  .inner-bar-3::after {
+    content: "";
+    height: 8px;
+    width: 30%;
+    background: $primary;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    bottom: 5px;
+  }
+
+  .inner-bar-4::after {
+    content: "";
+    height: 8px;
+    width: 40%;
+    background: $primary;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    bottom: 5px;
+  }
+
+  .inner-bar-5::after {
+    content: "";
+    height: 8px;
+    width: 50%;
+    background: $primary;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    bottom: 5px;
+  }
+
+  .inner-bar-5-1::after {
+    content: "";
+    height: 8px;
+    width: 55%;
+    background: $primary;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    bottom: 5px;
+  }
+
+  .inner-bar-6::after {
+    content: "";
+    height: 8px;
+    width: 60%;
+    background: $primary;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    bottom: 5px;
+  }
+
+  .inner-bar-7::after {
+    content: "";
+    height: 8px;
+    width: 70%;
+    background: $primary;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    bottom: 5px;
+  }
+
+  .inner-bar-7-1::after {
+    content: "";
+    height: 8px;
+    width: 73.33%;
+    background: $primary;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    bottom: 5px;
+  }
+
+  .inner-bar-7-2::after {
+    content: "";
+    height: 8px;
+    width: 76.66%;
+    background: $primary;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    bottom: 5px;
+  }
+
+  .inner-bar-8::after {
+    content: "";
+    height: 8px;
+    width: 80%;
+    background: $primary;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    bottom: 5px;
+  }
+
+  .inner-bar-8-1::after {
+    content: "";
+    height: 8px;
+    width: 85%;
+    background: $primary;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    bottom: 5px;
+  }
+
+  .inner-bar-9::after {
+    content: "";
+    height: 8px;
+    width: 90%;
+    background: $primary;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    bottom: 5px;
+  }
+
+  .inner-bar-10::after {
+    content: "";
+    height: 8px;
+    width: 100%;
+    background: $primary;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    bottom: 5px;
+  }
+}
+
+.my-check {
+  input {
+    position: absolute;
+    left: -9999px;
+  }
+
+  label,a {
+    display: inline-block;
+    position: relative;
+    // padding: 0.8rem 2rem;
+    padding: 0.8rem 0rem;
+    margin-bottom: 1.5rem;
+    font-size: 13px;
+    width: 32%;
+    text-align: center;
+    border-radius: $b-radius;
+    color: $primary;
+    background-color: darken($color: #F0F9FF, $amount: 2);
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s, box-shadow 0.2s;
+  }
+
+  input:checked + label {
+    background-color: $primary;
+    color: #fff;
+  }
+
+  input:checked + label::before {
+    background-color: #fff;
+  }
+}
+
+.radio {
+  input {
+    position: absolute;
+    left: -9999px;
+  }
+
+  label {
+    display: inline-block;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-radius: $b-radius;
+    width: 4rem;
+    color: $primary;
+    background-color: darken($color: #F1FBFF, $amount: 2);
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s, box-shadow 0.2s;
+  }
+
+  input:checked + label {
+    background-color: $primary;
+    color: #fff;
+  }
+
+  input:checked + label::before {
+    background-color: #fff;
+  }
+}
+
+.newradio {
+    display: block;
+    line-height: 40px;
+    min-height: 30vh;
+    // text-align: center;
+ label{
+   margin: 0 0.8rem;
+   font-size: 0.9rem;
+   color: $primary;
+   width: 90px;
+ }
+  .option-input {
+    appearance: none;
+    position: relative;
+    top: 14px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    transition: all 0.15s ease-out 0s;
+    background: $primary-light;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+  }
+  .option-input:hover {
+    background: #9faab7;
+  }
+  .option-input:checked {
+    background: $primary;
+  }
+  .option-input:checked::before {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    display: inline-block;
+    font-size: 26.6666666667px;
+    line-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  .option-input:checked::after {
+    background: $primary;
+    height: 40px;
+    width: 40px;
+    content: url('/icons/checkmark.svg');
+    display: block;
+    position: relative;
+    z-index: 100;
+  }
+  .option-input.radio {
+    border-radius: 50%;
+  }
+  .option-input.radio::after {
+    border-radius: 50%;
+  }
+
+}
+
+.location{
+  .location-map{
+    height: 50vh;
+    width: 100%;
+    background: #e3e3e3;
+    margin: 15px 0;
+  }
+
+  .location-text{
+    color: $primary;
+    &:hover{
+      color: lighten($color: $primary, $amount: 20)
+    }
+  }
+
+  svg{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    position: relative;
+    bottom: 2px;
+    fill: currentColor;
+  }
+}

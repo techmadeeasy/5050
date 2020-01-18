@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="/branding/favicon/favicon.ico" type="image/x-icon">
+  <!--jquery-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+    <!--fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600&display=swap" rel="stylesheet">
+   <!--grid-->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!--mine-->
+  <link rel="stylesheet" href="/css/globals.css">
+  <link rel="stylesheet" href="/css/main.css">
+
+  <title>Document</title>
+</head>
+
+<body>
+  <%- include includes/navigation.ejs %>
+  <div class="container col-lg-6 mt-0 mt-md-2">
+
+
+    <p class="m-0 counter d-flex justify-content-center">5/10</p>
+
+    <div class="bar">
+      <div class="line-bar"></div>
+      <div class="inner-bar-5"></div>
+    </div>
+<div class="back ml-n3 mt-3 mb-n2">
+  <a href="/profile?point=4&profile_id=<%=data.ID%>">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <g data-name="Layer 2">
+        <g data-name="arrow-ios-back">
+          <rect width="24" height="24" transform="rotate(90 12 12)" opacity="0" />
+          <path
+            d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64z" />
+        </g>
+      </g>
+    </svg>Previous Page
+  </a>
+</div>
+    <form class="mt-4" method="post" action="/profile">
+
+      <input type="hidden" name="profile_id" value="<%=data.ID%>">
+        <h4 class="heading mb-1">Electricity</h4>
+        <p class="m-0">Does your farm have electricity?</p>
+        <p class="m-0">If so what is the source?</p>
+        <div class="form-group mt-4">
+
+            <div class="form-group mt-4">
+
+                <div class="my-check">
+
+                  <input id="Grid" value="Grid" type="checkbox" name="electricity_source" >
+                  <label for="Grid">Grid</label>
+
+                  <input id="Generator" value="Generator" name="electricity_source" type="checkbox">
+                  <label for="Generator">Generator</label>
+
+                  <input id="Solar" value="Solar" name="electricity_source" type="checkbox">
+                  <label for="Solar">Solar</label>
+
+                  <input id="No Electricity" value="No Electricity" name="electricity_source" type="checkbox">
+                  <label for="No Electricity">No Electricity</label>
+              </div>
+
+             </div>
+            <!--
+
+      -->
+          </div>
+          <div class="d-flex bottom">
+        <div class="col px-0">
+          <a href="/profile?point=5-1&profile_id=<%=data.ID%>" class="button-outline">Skip</a>
+        </div>
+        <div class="col px-0">
+            <input type="hidden" name="point" value="5">
+            <input id="payload" type="hidden" name="payload" value="<%=JSON.stringify(data)%>">
+            <input type="hidden" name="date" value="<%=new Date().toDateString()%>">
+          <button class="button" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <g data-name="Layer 2">
+                <g data-name="arrow-forward">
+                  <rect width="24" height="24" transform="rotate(-90 12 12)" opacity="0" />
+                  <path
+                    d="M5 13h11.86l-3.63 4.36a1 1 0 0 0 1.54 1.28l5-6a1.19 1.19 0 0 0 .09-.15c0-.05.05-.08.07-.13A1 1 0 0 0 20 12a1 1 0 0 0-.07-.36c0-.05-.05-.08-.07-.13a1.19 1.19 0 0 0-.09-.15l-5-6A1 1 0 0 0 14 5a1 1 0 0 0-.64.23 1 1 0 0 0-.13 1.41L16.86 11H5a1 1 0 0 0 0 2z" />
+                </g>
+              </g>
+          </svg> Next</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <script src="/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+
+    var payload = JSON.parse(document.getElementById('payload').value);
+    var source = JSON.parse(payload.electricity_source);
+    //if one selection, does not come as array
+    //FIX: check if 'electricity_source' is array or object. If object, find by id, else parse and loop
+    for(let s of source){
+        document.getElementById(s).checked = true;
+    }
+
+    var inputs = document.querySelector('input[name=electricity_source]');
+
+    document.getElementById('No Electricity').addEventListener('change', function() {
+        if(this.checked) {
+            document.getElementById('Grid').checked = false;
+            document.getElementById('Solar').checked = false;
+            document.getElementById('Generator').checked = false;
+        }
+    });
+
+    const deselect = () => {
+
+        document.getElementById('No Electricity').checked = false;
+
+    };
+
+    document.getElementById('Grid').addEventListener('change', deselect);
+    document.getElementById('Solar').addEventListener('change', deselect);
+    document.getElementById('Generator').addEventListener('change', deselect);
+
+
+
+  </script>
+</body>
+
+</html>

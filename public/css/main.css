@@ -1,0 +1,601 @@
+
+body {
+  font-family: "Nunito", sans-serif;
+  color: #3b3b3b;
+}
+
+body::before {
+  content: "";
+  height: 4px;
+  background: #319241;
+  display: block;
+}
+
+nav {
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  box-shadow: 0px 2.5px 3px 1px rgb(235, 235, 235);
+  white-space: nowrap;
+   overflow: scroll;
+}
+
+nav .link {
+  padding: 0 2rem;
+  text-decoration: none;
+  color: rgb(36, 36, 36);
+  text-transform: uppercase;
+  font-size: 10pt;
+  font-weight: 600;
+}
+
+nav .link:hover {
+  color: #0088ff;
+  transition: 0.5s ease;
+}
+
+.branding {
+  height: 70px;
+  background: url("/branding/logo.jpeg") no-repeat;
+  width: 5rem;
+  background-size: contain;
+  background-position: center;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+  nav {
+    box-shadow: 0px 2.5px 3px 1px rgb(235, 235, 235);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    
+  }
+  .branding {
+    display: none;
+  }
+  nav .link {
+    padding: 0 1rem;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  nav {
+    box-shadow: 0px 2.5px 3px 1px rgb(235, 235, 235);
+
+  }
+ 
+  nav .link {
+    padding: 0 0.5rem;
+  }
+}
+
+/* body::before {
+  position: relative;
+  bottom: 30px;
+  content: '';
+  display: inline-block;
+  width: 100%;
+  height: 18px;
+  background: #2699FB;
+} */
+
+.back-arrow {
+  position: relative;
+}
+
+.left {
+  width: 20px;
+  height: 20px;
+  border-width: 2px 2px 0 0;
+  border-style: solid;
+  border-color: #2699fb;
+  margin: 10px;
+  transform: rotate(-135deg);
+}
+
+/* #bg-home::before {
+  position: relative;
+  bottom: 30px;
+  content: '';
+  display: inline-block;
+  width: 100%;
+  height: 18px;
+  background: #3CA044;
+} */
+
+.back svg{
+position: relative;
+top: -1px;
+
+}
+
+
+.custom-label {
+  color: #0d8dfb;
+  font-size: 0.9rem;
+}
+
+.box-header {
+  border: 1px solid #e3e3e3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  height: 60px;
+  width: 100%;
+  background: #2699fb;
+  color: #fff;
+  padding: 10px;
+}
+
+.box-header p {
+  font-size: 0.9rem;
+}
+
+.box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  min-height: 60px;
+  width: 100%;
+  background-color: #e6f5ff;
+  padding: 10px 5px;
+}
+
+.box p {
+  font-size: 0.8rem;
+}
+
+.search-results {
+  margin-top: 1.2rem;
+  padding: 0 1rem;
+  color: #2699fb;
+}
+
+.bar {
+  position: relative;
+  margin-top: 10px;
+}
+
+.bar .line-bar::before {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: #bce0fe;
+  display: block;
+  border-radius: 5px;
+}
+
+.bar .inner-bar::after {
+  content: "";
+  height: 8px;
+  width: 10%;
+  background: #2699fb;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  bottom: 5px;
+}
+
+.bar .inner-bar-2::after {
+  content: "";
+  height: 8px;
+  width: 20%;
+  background: #2699fb;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  bottom: 5px;
+}
+
+.bar .inner-bar-3::after {
+  content: "";
+  height: 8px;
+  width: 30%;
+  background: #2699fb;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  bottom: 5px;
+}
+
+.bar .inner-bar-4::after {
+  content: "";
+  height: 8px;
+  width: 40%;
+  background: #2699fb;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  bottom: 5px;
+}
+
+.bar .inner-bar-5::after {
+  content: "";
+  height: 8px;
+  width: 50%;
+  background: #2699fb;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  bottom: 5px;
+}
+
+.bar .inner-bar-5-1::after {
+  content: "";
+  height: 8px;
+  width: 55%;
+  background: #2699fb;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  bottom: 5px;
+}
+
+.bar .inner-bar-6::after {
+  content: "";
+  height: 8px;
+  width: 60%;
+  background: #2699fb;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  bottom: 5px;
+}
+
+.bar .inner-bar-7::after {
+  content: "";
+  height: 8px;
+  width: 70%;
+  background: #2699fb;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  bottom: 5px;
+}
+
+.bar .inner-bar-7-1::after {
+  content: "";
+  height: 8px;
+  width: 73.33%;
+  background: #2699fb;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  bottom: 5px;
+}
+
+.bar .inner-bar-7-2::after {
+  content: "";
+  height: 8px;
+  width: 76.66%;
+  background: #2699fb;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  bottom: 5px;
+}
+
+.bar .inner-bar-8::after {
+  content: "";
+  height: 8px;
+  width: 80%;
+  background: #2699fb;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  bottom: 5px;
+}
+
+.bar .inner-bar-8-1::after {
+  content: "";
+  height: 8px;
+  width: 85%;
+  background: #2699fb;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  bottom: 5px;
+}
+
+.bar .inner-bar-9::after {
+  content: "";
+  height: 8px;
+  width: 90%;
+  background: #2699fb;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  bottom: 5px;
+}
+
+.bar .inner-bar-10::after {
+  content: "";
+  height: 8px;
+  width: 100%;
+  background: #2699fb;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  bottom: 5px;
+}
+
+.my-check input {
+  position: absolute;
+  left: -9999px;
+}
+
+.my-check label,
+.my-check a {
+  display: inline-block;
+  position: relative;
+  padding: 0.8rem 0rem;
+  margin-bottom: 1.5rem;
+  font-size: 13px;
+  width: 32%;
+  text-align: center;
+  border-radius: 4px;
+  color: #2699fb;
+  background-color: #e6f5ff;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: background-color 0.2s, -webkit-box-shadow 0.2s;
+  transition: background-color 0.2s, -webkit-box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s, -webkit-box-shadow 0.2s;
+}
+
+.my-check input:checked + label {
+  background-color: #2699fb;
+  color: #fff;
+}
+
+.my-check input:checked + label::before {
+  background-color: #fff;
+}
+
+.radio input {
+  position: absolute;
+  left: -9999px;
+}
+
+.radio label {
+  display: inline-block;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  width: 4rem;
+  color: #2699fb;
+  background-color: #e7f8ff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: background-color 0.2s, -webkit-box-shadow 0.2s;
+  transition: background-color 0.2s, -webkit-box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s, -webkit-box-shadow 0.2s;
+}
+
+.radio input:checked + label {
+  background-color: #2699fb;
+  color: #fff;
+}
+
+.radio input:checked + label::before {
+  background-color: #fff;
+}
+
+.newradio {
+  display: block;
+  line-height: 40px;
+  min-height: 30vh;
+}
+
+.newradio label {
+  margin: 0 0.8rem;
+  font-size: 0.9rem;
+  color: #2699fb;
+  width: 90px;
+}
+
+.newradio .option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  top: 14px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  width: 40px;
+  -webkit-transition: all 0.15s ease-out 0s;
+  transition: all 0.15s ease-out 0s;
+  background: #bce0fe;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.5rem;
+  outline: none;
+  position: relative;
+  z-index: 1000;
+}
+
+.newradio .option-input:hover {
+  background: #9faab7;
+}
+
+.newradio .option-input:checked {
+  background: #2699fb;
+}
+
+.newradio .option-input:checked::before {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  display: inline-block;
+  font-size: 26.6666666667px;
+  line-height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+}
+
+.newradio .option-input:checked::after {
+  background: #2699fb;
+  height: 40px;
+  width: 40px;
+  content: url("/icons/checkmark.svg");
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+
+.newradio .option-input.radio {
+  border-radius: 50%;
+}
+
+.newradio .option-input.radio::after {
+  border-radius: 50%;
+}
+
+.location .location-map {
+  height: 50vh;
+  width: 100%;
+  background: #e3e3e3;
+  margin: 15px 0;
+}
+
+.location .location-text {
+  color: #2699fb;
+}
+
+.location .location-text:hover {
+  color: #8ac8fd;
+}
+
+.location svg {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  position: relative;
+  bottom: 2px;
+  fill: currentColor;
+}
+/*# sourceMappingURL=main.css.map */
+
+.custom-card {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12), 
+  0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 0.7rem;
+  padding: 0 2rem;
+  min-height: 90px;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 600px;
+  border: 0.3px solid #eee;
+  background: rgb(250, 250, 250);
+}
+
+.c-body{
+  width: 500px;
+}
+
+.custom-card a{
+  text-decoration: none;
+}
+
+.list-item a:hover{
+  background: #eee;
+}
+
+.c-title{
+  color: #075ba5 !important;
+  font-weight: 800;
+  font-size: 1.5rem;
+
+}
+
+.c-caption p{
+  color: #4e4e4e;
+  text-transform: capitalize;
+  font-size: 0.8rem;
+  margin: 0;
+  
+}
+
+.c-menu::after{
+  content:url("/icons/menu.svg");
+  display: inline-block;
+   height: 20px;
+  width: 20px; 
+}
+
+.c-menu:hover::after{
+     background: #eee;
+     border-radius: 10px;
+     
+}
+
+.custom-card:hover{
+  background: rgb(241, 241, 241);
+}
+
+@media only screen and (max-width: 580px) {
+  .custom-card {
+    width: 90vw;
+  }
+  .c-body{
+  width: 80vw;
+}
+}
+
+.custom-card .c-title {
+  font-size: 1.3rem;
+  color: #3b3b3b;
+}
+
+.search-btn svg{
+  width: 18px;
+  height: 18px;
+  position: relative;
+  top: -2px;
+}
+
+.farm-profile  a:hover{
+  text-decoration: underline !important;
+}
+
+.error-page{
+  margin-top: 20vh;
+}

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./branding/favicon/favicon.ico" type="image/x-icon">
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!--fonts-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600&display=swap" rel="stylesheet">
+    <!--grid-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!--mine-->
+    <link rel="stylesheet" href="/css/globals.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <%- include includes/navigation.ejs %>
+
+    <section>
+
+       <div class="container">
+        <div class="row justify-content-center mt-3 farm-profile">
+            <div class="col-md-10 col-12">
+                <div class="container">
+                    <small>Click on any title(e.g. Farm Name) to edit the value</small>
+                    <h4 class=" mb-1"><%= farm_profile.farm_name %>'s Farm Profile</h4>
+
+                    <div class="container">
+                        <div class="row border rounded py-4 mt-3">
+                            <div class="col-md-6 col-12">
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=1">
+                                    <h5 class="text-center main-heading my-3"> Farm Name</h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+                                    <strong> <%=farm_profile.farm_name %> </strong>
+
+
+                                </div>
+
+
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=1">
+                                    <h5 class="text-center main-heading my-3"> Farm Size</h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+                                    <strong><%=farm_profile.size %> Acres</strong>
+
+
+                                </div>
+
+
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=1">
+                                    <h5 class="text-center main-heading my-3"> Personnel Size</h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+                                    <strong><%=farm_profile.personnel %> People</strong>
+
+
+                                </div>
+
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=3">
+                                    <h5 class="text-center main-heading my-3"> District</h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+                                    <strong><%=farm_profile.district %></strong>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=4">
+                                    <h5 class="text-center main-heading my-3"> Does your farm rely on primarily on rain?
+                                    </h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+                                    <strong><%=farm_profile.rain%></strong>
+
+
+                                </div>
+
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=4">
+                                    <h5 class="text-center main-heading my-3"> Is there consistent water?</h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+                                    <strong><%=farm_profile.has_consistent_source %></strong>
+
+
+                                </div>
+
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=4">
+                                    <h5 class="text-center main-heading my-3"> Is there an Irrigation System?</h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+                                    <strong> <%=farm_profile.has_irrigation_system %></strong>
+
+
+                                </div>
+
+
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=5">
+                                    <h5 class="text-center main-heading my-3"> Electricity Sources</h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+
+                                    <strong><%=farm_profile.electricity_source? JSON.parse(farm_profile.electricity_source).toString() : ''%>
+                                        <br> </strong>
+
+                                </div>
+
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=5-1">
+                                    <h5 class="text-center main-heading my-3"> Other Resources</h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+                                    <strong><%=farm_profile.other_resources? JSON.parse(farm_profile.other_resources).toString(): ''%>
+                                        <br>
+                                    </strong>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row border rounded py-4 mt-5">
+                            <div class="col-12 col-md-6">
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=6">
+                                    <h5 class="text-center main-heading my-3"> Land Status</h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+                                    <strong><%= farm_profile.land_status?  JSON.parse(farm_profile.land_status).toString() : '' %></strong>
+
+                                </div>
+
+
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=8">
+                                    <h5 class="text-center main-heading my-3"> Is farm a registered business?</h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+                                    <strong><%=farm_profile.is_registered %></strong>
+
+                                </div>
+
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=8">
+                                    <h5 class="text-center main-heading my-3"> Is farm insured?</h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+                                    <strong><%=farm_profile.has_insurance %></strong>
+
+                                </div>
+
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=8">
+                                    <h5 class="text-center main-heading my-3"> Do you have a Business Plan?</h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+                                    <strong><%=farm_profile.has_business_plan %></strong>
+
+                                </div>
+
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=8">
+                                    <h5 class="text-center main-heading my-3"> Do you sell to produce?</h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+                                    <strong><%=farm_profile.sells_to_produce %></strong>
+
+                                </div>
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=8-1">
+                                    <h5 class="text-center main-heading my-3">Do you work at the farm full-time?</h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+                                    <strong><%=farm_profile.works_fulltime %></strong>
+
+                                </div>
+
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=8-1">
+                                    <h5 class="text-center main-heading my-3">Have you received formal training?</h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+                                    <strong><%=farm_profile.has_formal_training %></strong>
+
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+
+
+
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=8-1">
+                                    <h5 class="text-center main-heading my-3">Years of Farming Experience</h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+                                    <strong><%=farm_profile.years_experience %> </strong>
+
+                                </div>
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=9">
+                                    <h5 class="text-center main-heading my-3">Government Support</h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+                                    CEDA:<strong><%=farm_profile.has_ceda_support ? farm_profile.has_ceda_support: '' %></strong>
+                                    <br>
+                                    YDF: <strong> <%=farm_profile.has_ydf_support ? farm_profile.has_ydf_support: ''%>
+                                    </strong><br>
+                                    ISPAAD: <strong> <%=farm_profile.has_ispaad_support ? farm_profile.has_ispaad_support: ''%>
+                                    </strong><br>
+                                    LEA: <strong> <%=farm_profile.has_lea_support ? farm_profile.has_lea_support: ''%>
+                                    </strong><br>
+                                </div>
+
+                                <a href="/profile?profile_id=<%=farm_profile.ID%>&point=10">
+                                    <h5 class="text-center main-heading my-3"><label for=""></label>Land Ownership</h5>
+                                </a>
+                                <h4 class="text-center">
+
+                                </h4>
+                                <div class="text-center bg-light mx-3 px-3 rounded">
+                                    <strong><%=farm_profile.farm_owner%></strong>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border rounded py-2 mt-5">
+                            <a href="/profile?profile_id=<%=farm_profile.ID%>&point=7-1">
+                                <h5 class="text-center main-heading my-3"> Current Crops</h5>
+                            </a>
+                            <h4 class="text-center">
+
+                            </h4>
+                            <div class="text-center  mx-5 px-3 rounded">
+
+                                <%if(farm_profile.current_crops){%>
+                                <table class="table">
+                                    <thead class="border bg-light">
+                                        <th>Crop</th>
+                                        <th>Area Planted</th>
+                                        <th>Date Planted</th>
+                                        <th>Section State</th>
+                                    </thead>
+                                    <tbody>
+                                        <%for(var i = 0; i < JSON.parse(farm_profile.current_crops).length; i++){%>
+                                        <tr>
+                                            <td><%=JSON.parse(farm_profile.current_crops)[i].crop%></td>
+                                            <td><%=JSON.parse(farm_profile.current_crops)[i].area%> Acres</td>
+                                            <td><%=JSON.parse(farm_profile.current_crops)[i].date%></td>
+                                            <td><%=JSON.parse(farm_profile.current_crops)[i].section_state%></td>
+                                        </tr>
+                                        <%}%>
+                                                                                                                            </tbody>
+                                                                                                                        </table>
+                                                                                                                    <%}%>
+                            </div>
+                            <br> <br>
+                            <a href="/profile?profile_id=<%=farm_profile.ID%>&point=7">
+                                <h5 class="text-center main-heading my-3"> Historic Crops</h5>
+                            </a>
+                            <h4 class="text-center">
+
+                            </h4>
+                            <div class="text-center  mx-5 px-3 rounded">
+
+                                <%if(farm_profile.historic_crops){%>
+                                <table class="table">
+                                    <thead class="border bg-light">
+                                        <th>Crop</th>
+                                        <th>Area Planted</th>
+                                        <th>Harvest (KG's)</th>
+                                        <th>Date Harvested</th>
+                                    </thead>
+
+                                    <tbody>
+                                        <%for(var i = 0; i < JSON.parse(farm_profile.historic_crops).length; i++){%>
+                                        <tr>
+                                            <td><%=JSON.parse(farm_profile.historic_crops)[i].crop%></td>
+                                            <td><%=JSON.parse(farm_profile.historic_crops)[i].area%> Acres</td>
+                                            <td><%=JSON.parse(farm_profile.historic_crops)[i].harvest%></td>
+                                            <td><%=JSON.parse(farm_profile.historic_crops)[i].date%></td>
+                                        </tr>
+                                        <%}%>
+                                                                                                                            </tbody>
+                                                                                                                        </table>
+
+                                                                                                                    <%}%>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+       </div>
+    </section>
+
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>
