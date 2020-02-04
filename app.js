@@ -26,7 +26,7 @@ require('dotenv').config({ path: require('app-root-path') + '/.env' });
 
 
 var options = {
-    host: 'localhost',
+    host: '127.0.0.1',
     port: 3306,
     user: 'root',
     password: '5VGR6dbERV53wr9',
@@ -98,9 +98,9 @@ passport.serializeUser(function(user, done) {
     .catch(error => done(null, false, {message: error.message}));
 });
 
-passport.deserializeUser(function(user, cb) {
+passport.deserializeUser(function(user, done) {
 
-    cb(null, user);
+    cb(null, done);
 
 });
 
