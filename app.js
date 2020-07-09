@@ -30,7 +30,7 @@ var options = {
     port: 3306,
     user: 'root',
     password: '5VGR6dbERV53wr9',
-    database: 'fifty',
+    database: 'app5050',
   // Whether or not to automatically check for and clear expired sessions:
   clearExpired: true,
   // How frequently expired sessions will be cleared; milliseconds:
@@ -100,7 +100,7 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(user, done) {
 
-    cb(null, done);
+    done(null, user);
 
 });
 
