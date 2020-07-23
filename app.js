@@ -29,8 +29,8 @@ var options = {
     host: '127.0.0.1',
     port: 3306,
     user: 'root',
-    password: '5VGR6dbERV53wr9',
-    database: 'app5050',
+    password: '',
+    database: 'fifty',
   // Whether or not to automatically check for and clear expired sessions:
   clearExpired: true,
   // How frequently expired sessions will be cleared; milliseconds:
@@ -83,14 +83,14 @@ passport.serializeUser(function(user, done) {
 
         if(result.length > 0){
             user.id = result[0].ID;
-            return done(null, user);
+            return done(null, user.id);
         }
         //if empty, call store_profile then serialize
 
         store_profile({user: user})
         .then(result => {
             user.id = result.farmer_id;
-            return done(null, user);
+            return done(null, user.id);
         })
         .catch(error => done(null, false, {message: error.message}));
 
@@ -117,6 +117,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(passport.initialize());
+app.use(passport.serializeUser());
+app.use(passport.deserializeUser());
 app.use(passport.session());
 app.use(flash());
 
